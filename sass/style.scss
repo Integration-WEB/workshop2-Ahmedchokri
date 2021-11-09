@@ -1,0 +1,44 @@
+$primary-color : #111111 ; 
+.text{
+color: red; 
+font-size: 20px ; 
+color :background black;
+ }    
+textarea{
+    h1{
+        @extend .text ;
+        border-radius: 4px;
+    }
+}
+@mixin test{
+    border: 3px solid yellow ; 
+}
+.btn{
+    @include test;
+}
+@function background( $color){
+    @if ($color!=white){
+        $color: white;
+    }
+    @else{
+      $color :black ;
+    }
+ }
+   
+ $languages : "HTML5","CSS3","JAVA","REACT";
+  @function first($languages){
+   $x :  nth($languages,1);
+   @return $x;
+  }
+  @function last($languages){
+      $y : nth($languages,length($languages));
+      @return $y ;
+  }
+ @function affiche($languages){
+    $x:first($languages);
+    $y:last($languages);
+    @return $x+$y;
+ }
+ .img{
+     content : affiche($languages);
+ }
